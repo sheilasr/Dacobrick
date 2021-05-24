@@ -61,7 +61,7 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1340, 945);
             this.panel1.TabIndex = 0;
@@ -74,7 +74,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button2.Location = new System.Drawing.Point(120, 37);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(67, 62);
             this.button2.TabIndex = 2;
@@ -89,7 +89,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Location = new System.Drawing.Point(40, 37);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(67, 62);
             this.button1.TabIndex = 1;
@@ -116,11 +116,12 @@
             this.Editar,
             this.Eliminar});
             this.dataGridView1.Location = new System.Drawing.Point(40, 111);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1260, 751);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ID
             // 
@@ -138,15 +139,16 @@
             // 
             // Titulo
             // 
-            this.Titulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Titulo.DataPropertyName = "Titulo";
             this.Titulo.HeaderText = "Título";
+            this.Titulo.MinimumWidth = 100;
             this.Titulo.Name = "Titulo";
             this.Titulo.ReadOnly = true;
+            this.Titulo.Width = 407;
             // 
             // Ubicacion
             // 
-            this.Ubicacion.DataPropertyName = "Ubicacion";
+            this.Ubicacion.DataPropertyName = "Poblacion";
             this.Ubicacion.HeaderText = "Ubicación";
             this.Ubicacion.Name = "Ubicacion";
             this.Ubicacion.ReadOnly = true;
@@ -174,7 +176,7 @@
             // 
             // Fecha_limite
             // 
-            this.Fecha_limite.DataPropertyName = "Fecha_limite";
+            this.Fecha_limite.DataPropertyName = "Fecha_fin";
             this.Fecha_limite.HeaderText = "Fecha límite";
             this.Fecha_limite.Name = "Fecha_limite";
             this.Fecha_limite.ReadOnly = true;
@@ -226,8 +228,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1344, 897);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OBRAS: Resumen.";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -240,6 +243,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Expediente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Titulo;
@@ -250,8 +256,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_limite;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.Button button2;
     }
 }

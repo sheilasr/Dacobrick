@@ -43,8 +43,9 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(695, 545);
+            this.panel1.Size = new System.Drawing.Size(927, 671);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -55,9 +56,10 @@
             this.Nombre,
             this.Apellidos,
             this.Seleccionar});
-            this.dataGridView1.Location = new System.Drawing.Point(25, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(33, 31);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(645, 495);
+            this.dataGridView1.Size = new System.Drawing.Size(860, 609);
             this.dataGridView1.TabIndex = 0;
             // 
             // Cod_empleado
@@ -86,12 +88,15 @@
             // 
             // Form12
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(696, 545);
+            this.ClientSize = new System.Drawing.Size(928, 671);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
             this.Name = "Form12";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo TRABAJADOR en obra";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

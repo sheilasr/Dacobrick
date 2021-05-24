@@ -152,5 +152,100 @@ namespace Dacobrick
                 return null;
             }
         }
+
+        public static void KeyPress_Entero(TextBox Caja, KeyPressEventArgs Arg, bool Negativo)
+        {
+
+            if (Negativo == true)
+            {
+                if (!char.IsControl(Arg.KeyChar) && !char.IsDigit(Arg.KeyChar) && (Arg.KeyChar != '-'))
+                {
+                    Arg.Handled = true;
+                }
+
+                // Solo un simbolo negativo y que sea el primero
+                if ((Arg.KeyChar == '-') && ((Caja).Text.IndexOf('-') > -1))
+                {
+                    Arg.Handled = true;
+                }
+                else
+                {
+                    if ((Arg.KeyChar == '-') && (Caja).Text.Length > 0)
+                    {
+                        Arg.Handled = false;
+                    }
+                }
+            }
+            else
+            {
+                if (!char.IsControl(Arg.KeyChar) && !char.IsDigit(Arg.KeyChar))
+                {
+                    Arg.Handled = true;
+                }
+            }
+
+            if (Arg.KeyChar == 13)
+            {
+                Arg.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        public static void KeyPress_Decimal(TextBox Caja, KeyPressEventArgs Arg, bool Negativo)
+        {
+            // Convierte puntos en comas
+            if (Arg.KeyChar == 46)
+            {
+                Arg.KeyChar = Convert.ToChar(",");
+            }
+
+            if (Negativo == true)
+            {
+                // Solo números, coma o negativo
+                if (!char.IsControl(Arg.KeyChar) && !char.IsDigit(Arg.KeyChar) && (Arg.KeyChar != ',') && (Arg.KeyChar != '-'))
+                {
+                    Arg.Handled = true;
+                }
+
+                // solo 1 punto decimal
+                if ((Arg.KeyChar == ',') && ((Caja).Text.IndexOf(',') > -1))
+                {
+                    Arg.Handled = true;
+                }
+
+                // Solo un simbolo negativo y que sea el primero
+                if ((Arg.KeyChar == '-') && ((Caja).Text.IndexOf('-') > -1))
+                {
+                    Arg.Handled = true;
+                }
+                else
+                {
+                    if ((Arg.KeyChar == '-') && (Caja).Text.Length > 0)
+                    {
+                        Arg.Handled = false;
+                    }
+                }
+            }
+            else
+            {
+                // Solo números, coma o negativo
+                if (!char.IsControl(Arg.KeyChar) && !char.IsDigit(Arg.KeyChar) && (Arg.KeyChar != ','))
+                {
+                    Arg.Handled = true;
+                }
+
+                // solo 1 punto decimal
+                if ((Arg.KeyChar == ',') && ((Caja).Text.IndexOf(',') > -1))
+                {
+                    Arg.Handled = true;
+                }
+            }
+
+            if (Arg.KeyChar == 13)
+            {
+                Arg.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
     }
 }
