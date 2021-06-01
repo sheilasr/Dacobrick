@@ -13,6 +13,8 @@ namespace Dacobrick
 {
     public partial class Form3 : Form
     {
+
+
         public Form3()
         {
             InitializeComponent();
@@ -21,8 +23,20 @@ namespace Dacobrick
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form frm = new Form4();
-            frm.Show();
+            bool Abierto = false;
+            for (int i = 0; i < Application.OpenForms.Count; i++)
+            {
+                if (Application.OpenForms[i].Name == "Form4")
+                {
+                    Application.OpenForms["Form4"].Close();
+                }
+            }
+            if (Abierto == false)
+            {
+                Form frm = new Form4();
+                frm.ShowDialog();
+                Cargar_Grid();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -34,7 +48,7 @@ namespace Dacobrick
         {
             //Conexiones.Ejecuta_Consulta("INSERT INTO obras (ID, Expediente, Titulo) VALUES ('2', '1', '1')");
 
-            DataSet ds = Conexiones.Retorna_Datos("SELECT * FROM obras");
+            DataSet ds = Conexiones.Retorna_Datos("SELECT * FROM obras ORDER BY ID");
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = ds.Tables[0];
         }
@@ -44,72 +58,73 @@ namespace Dacobrick
         {
             var senderGrid = (DataGridView)sender;
 
-            //try
-            //{
-            //    if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
-            //    {
-            //        NumFila = e.RowIndex;
+            try
+            {
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
+                {
+                    NumFila = e.RowIndex;
 
-            //        dataGridView1.CurrentCell = dataGridView1[0, NumFila];
+                    dataGridView1.CurrentCell = dataGridView1[0, NumFila];
+                    string ID_Eliminar = Convert.ToString(dataGridView1.Rows[NumFila].Cells[0].Value);
+                    //Eliminar
+                    if (e.ColumnIndex == 9)
+                    {
+                        DialogResult resp = MessageBox.Show("¿Seguro que deseas eliminar el registro?", "¡ALERTA!", MessageBoxButtons.YesNo);
 
-            //        // Editar
-            //        if (e.ColumnIndex == 8)
-            //        {
-            //            Enlazar_Datos();
+                        if (resp == DialogResult.Yes)
+                        {
+                            string SQL = "DELETE FROM obras where ID = '" + ID_Eliminar + "'";
+                            Conexiones.Ejecuta_Consulta("DELETE FROM obras where ID = '" + ID_Eliminar + "'");
 
-            //            Barra_Txt_Estado.Text = "MODIFICAR";
-            //            Bloquear_Controles(false);
-            //            Activar_Botones_Barra("MODIFICAR");
+                            MessageBox.Show("Eliminado correctamente.");
+                            this.Close();
+                        }
+                    }
+                    //Editar
+                    if (e.ColumnIndex == 8)
+                    {
+                        string id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        string expediente = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        string titulo = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            //            Txt_Nombre.Focus();
-            //            Txt_Codigo.Enabled = false;
-            //            Ficha.SelectedIndex = 1;
-            //        }
+                        Variables_Globales.id = id;
+                        Variables_Globales.expediente = expediente;
+                        Variables_Globales.titulo = titulo;
+                        Variables_Globales.Form4_Desde = "FORM3";
 
-            //        //Eliminar
-            //        if (e.ColumnIndex == 9)
-            //        {
-            //            return;
+                        Form4 frm = new Form4();
+                        frm.Show();
 
-            //            int ID = 
-            //            List<ColumnaSQL> Valores = new List<ColumnaSQL>();
-            //            List<ColumnaSQL> Condicion = new List<ColumnaSQL>();
 
-            //            DialogResult resp = MessageBox.Show("¿Seguro que desea elimnar el registro?", "IT&P ERP", MessageBoxButtons.YesNo);
+                        Variables_Globales.id = "";
+                        Variables_Globales.expediente = "";
+                        Variables_Globales.titulo = "";
+                        Variables_Globales.Form4_Desde = "";
 
-            //            if (resp == DialogResult.Yes)
-            //            {
-            //                DataSet ds = Funciones.Retorna_Datos("SELECT * FROM ARTIC WHERE CodTipo = '" + GridView_Lista[0, e.RowIndex].Value + "'", false, "");
+                    }
+                    //System.Data.DataRowView SelectedRowView;
+                    //NorthwindDataSet.CustomersRow SelectedRow;
 
-            //                if (ds == null)
-            //                    return;
+                        //SelectedRowView = (System.Data.DataRowView)customersBindingSource.Current;
+                        //SelectedRow = (NorthwindDataSet.CustomersRow)SelectedRowView.Row;
 
-            //                if (ds.Tables[0].Rows.Count > 0)
-            //                {
-            //                    if (Comprobar_Si_Puede_Eliminar(ds.Tables[0].Rows[0]["CodTipo"].ToString()) == false)
-            //                    {
-            //                        MessageBox.Show("El registro no se puede eliminar porque está siendo utilizado.", "IT&P ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //                        return;
-            //                    }
-
-            //                    Valores.Clear();
-            //                    Valores.Add(new ColumnaSQL("CodTipo", Convert.ToInt32(ds.Tables[0].Rows[0]["CodTipo"].ToString()), OdbcType.Int));
-
-            //                    Funciones.Ejecuta_Consulta_Delete("ARTIC", Valores);
-
-            //                    Funciones.Insertar_Accion_En_Control_Usuario("ELIMINAR", this.Text, Txt_Codigo.Text, Txt_Nombre.Text, "");
-            //                }
-            //            }
-
-            //            Buscar("", "");
-            //            Vaciar_Campos();
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show ("Se ha producido un error al editar/borrar la obra seleccionada.")
-            //}
+                        //Form frm = new Form4();
+                        //frm.LoadOrders(SelectedRow.CustomerID);
+                        //frm.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error eliminando el registro indicado.");
+            }
         }
+
+
+        private void Editar_obra()
+        {
+
+        }
+
+
     }
 }

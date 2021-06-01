@@ -31,6 +31,9 @@ namespace Dacobrick
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox_Tit = new System.Windows.Forms.TextBox();
+            this.textBox_Exp = new System.Windows.Forms.TextBox();
+            this.textBox_ID = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -44,9 +47,6 @@ namespace Dacobrick
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.textBox_Tit = new System.Windows.Forms.TextBox();
-            this.textBox_Exp = new System.Windows.Forms.TextBox();
-            this.textBox_ID = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +74,36 @@ namespace Dacobrick
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(927, 671);
             this.panel1.TabIndex = 0;
+            // 
+            // textBox_Tit
+            // 
+            this.textBox_Tit.Enabled = false;
+            this.textBox_Tit.Location = new System.Drawing.Point(13, 622);
+            this.textBox_Tit.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_Tit.Name = "textBox_Tit";
+            this.textBox_Tit.Size = new System.Drawing.Size(132, 22);
+            this.textBox_Tit.TabIndex = 25;
+            this.textBox_Tit.Visible = false;
+            // 
+            // textBox_Exp
+            // 
+            this.textBox_Exp.Enabled = false;
+            this.textBox_Exp.Location = new System.Drawing.Point(13, 592);
+            this.textBox_Exp.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_Exp.Name = "textBox_Exp";
+            this.textBox_Exp.Size = new System.Drawing.Size(132, 22);
+            this.textBox_Exp.TabIndex = 24;
+            this.textBox_Exp.Visible = false;
+            // 
+            // textBox_ID
+            // 
+            this.textBox_ID.Enabled = false;
+            this.textBox_ID.Location = new System.Drawing.Point(13, 562);
+            this.textBox_ID.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_ID.Name = "textBox_ID";
+            this.textBox_ID.Size = new System.Drawing.Size(132, 22);
+            this.textBox_ID.TabIndex = 23;
+            this.textBox_ID.Visible = false;
             // 
             // listBox1
             // 
@@ -114,14 +144,13 @@ namespace Dacobrick
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(127, 85);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(299, 22);
             this.dateTimePicker1.TabIndex = 10;
-            //this.dateTimePicker1.Value = new System.DateTime(2021, 5, 5, 0, 0, 0, 0);
-            this.dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
             // 
             // textBox2
             // 
@@ -143,7 +172,7 @@ namespace Dacobrick
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 319);
+            this.label6.Location = new System.Drawing.Point(33, 313);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 17);
@@ -153,7 +182,7 @@ namespace Dacobrick
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 196);
+            this.label5.Location = new System.Drawing.Point(33, 190);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 17);
@@ -163,7 +192,7 @@ namespace Dacobrick
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 122);
+            this.label4.Location = new System.Drawing.Point(33, 115);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 17);
@@ -173,7 +202,7 @@ namespace Dacobrick
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 92);
+            this.label3.Location = new System.Drawing.Point(33, 85);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 17);
@@ -183,7 +212,7 @@ namespace Dacobrick
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 61);
+            this.label2.Location = new System.Drawing.Point(33, 55);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 17);
@@ -193,7 +222,7 @@ namespace Dacobrick
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 31);
+            this.label1.Location = new System.Drawing.Point(33, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
@@ -210,36 +239,6 @@ namespace Dacobrick
             this.listBox2.TabIndex = 22;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
-            // textBox_Tit
-            // 
-            this.textBox_Tit.Enabled = false;
-            this.textBox_Tit.Location = new System.Drawing.Point(13, 622);
-            this.textBox_Tit.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox_Tit.Name = "textBox_Tit";
-            this.textBox_Tit.Size = new System.Drawing.Size(132, 22);
-            this.textBox_Tit.TabIndex = 25;
-            this.textBox_Tit.Visible = false;
-            // 
-            // textBox_Exp
-            // 
-            this.textBox_Exp.Enabled = false;
-            this.textBox_Exp.Location = new System.Drawing.Point(13, 592);
-            this.textBox_Exp.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox_Exp.Name = "textBox_Exp";
-            this.textBox_Exp.Size = new System.Drawing.Size(132, 22);
-            this.textBox_Exp.TabIndex = 24;
-            this.textBox_Exp.Visible = false;
-            // 
-            // textBox_ID
-            // 
-            this.textBox_ID.Enabled = false;
-            this.textBox_ID.Location = new System.Drawing.Point(13, 562);
-            this.textBox_ID.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox_ID.Name = "textBox_ID";
-            this.textBox_ID.Size = new System.Drawing.Size(132, 22);
-            this.textBox_ID.TabIndex = 23;
-            this.textBox_ID.Visible = false;
-            // 
             // Form14
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -249,6 +248,7 @@ namespace Dacobrick
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form14";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo GASTO.";

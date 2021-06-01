@@ -30,14 +30,14 @@ namespace Dacobrick
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int ID;
-            int ID_obra;
+            string ID;
+            string ID_obra;
             string Fecha = "";
             string Tipo = "";
             string Descripcion = "";
 
-            ID = Convert.ToInt32(textBox1.Text);
-            ID_obra = Convert.ToInt32(Variables_Globales.Identificador_obra);
+            ID = textBox1.Text;
+            ID_obra = Convert.ToString(Variables_Globales.Identificador_obra);
             Fecha = Convert.ToString(dateTimePicker1.Text);
             Tipo = Convert.ToString(checkedListBox1.Text);
             Descripcion = textBox4.Text;
@@ -64,13 +64,13 @@ namespace Dacobrick
             string maximo = "";
             try
             {
-                String SQL = "SELECT MAX(ID) as ID FROM planificacion where ID_OBRA = '" + Variables_Globales.Identificador_obra + "'";
+                String SQL = "SELECT MAX(ID) as ID FROM planificacion";
                 DataSet ds = Conexiones.Retorna_Datos(SQL);
                 maximo = Convert.ToString(ds.Tables[0].Rows[0]["ID"]);
 
                 if (maximo == "")
                 {
-                    textBox1.Text = "0";
+                    textBox1.Text = "1";
                 }
 
                 if (maximo != "" && ds.Tables[0].Rows.Count > 0)

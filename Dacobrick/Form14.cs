@@ -28,7 +28,7 @@ namespace Dacobrick
 
         private void Rellenar_ListBox()
         {
-            DataSet ds = Conexiones.Retorna_Datos("Select ID, Expediente, Titulo from obras");
+            DataSet ds = Conexiones.Retorna_Datos("Select ID, Expediente, Titulo, Estado from obras where (Estado = 'PUBLICADA' or Estado = 'PRESENTADA' or Estado = 'EN EVALUACIÓN' or Estado = 'ADJUDICADA' or Estado = 'EN EJECUCIÓN' or Estado = 'FINALIZADA' or Estado = 'OTROS')");
 
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
@@ -60,7 +60,7 @@ namespace Dacobrick
 
                 if (maximo == "")
                 {
-                    textBox1.Text = "0";
+                    textBox1.Text = "1";
                 }
 
                 if (maximo != "" && ds.Tables[0].Rows.Count > 0)
@@ -78,6 +78,7 @@ namespace Dacobrick
         List<string> Lista_desconcatenar = new List<string>();
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Lista_desconcatenar.Clear();
             string curItem = listBox2.SelectedItem.ToString();
             int index = listBox2.FindString(curItem);
             string[] words = curItem.Split(',');
@@ -100,25 +101,25 @@ namespace Dacobrick
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int COD_GASTOS;
-            string N_factura;
-            string Fecha;
+            string COD_GASTOS = "";
+            string N_factura = "";
+            string Fecha = "";
             string Tipo = "";
-            int Obra;
+            string Obra = "";
             string Expediente = "";
             string Titulo = "";
             string Importe = "";
 
-            COD_GASTOS = Convert.ToInt32(textBox1.Text);
+            COD_GASTOS = textBox1.Text;
             N_factura = Convert.ToString(textBox2.Text);
             Fecha = Convert.ToString(dateTimePicker1.Text);
             Tipo = Convert.ToString(listBox1.Text);
             Importe = textBox3.Text;
-            Obra = Convert.ToInt32(textBox_ID.Text);
+            Obra = textBox_ID.Text;
             Expediente = Convert.ToString(textBox_Exp.Text);
             Titulo = Convert.ToString(textBox_Tit.Text);
 
-            if (Convert.ToString(COD_GASTOS) != "" && Convert.ToString(Obra) != "" && Convert.ToString(N_factura) != "")
+            if (Convert.ToString(COD_GASTOS) != "" && Convert.ToString(Obra) != "" && Convert.ToString(N_factura) != "" && Convert.ToString(Fecha) != "")
             {
                 string SQL = "INSERT INTO gastos (COD_GASTOS, N_factura, Fecha, Tipo, Obra, Expediente, Titulo, Importe) " +
                     "VALUES ('" + COD_GASTOS + "', '" + N_factura + "', '" + Fecha + "', '" + Tipo + "', '" + Obra + "', '" + Expediente + "', '" + Titulo + "', '" + Importe + "')";
@@ -132,7 +133,7 @@ namespace Dacobrick
             }
             else
             {
-                MessageBox.Show("Debes insertar nº de factura e importe.");
+                MessageBox.Show("Debes insertar nº de factura, importe y fecha.");
                 return;
             }
 

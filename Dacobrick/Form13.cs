@@ -25,8 +25,8 @@ namespace Dacobrick
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int CODIGO;
-            int N_factura;
+            string CODIGO;
+            string N_factura;
             string Fecha = "";
             string Empresa = "";
             string Producto = "";
@@ -34,8 +34,8 @@ namespace Dacobrick
             string ID_Obra = "";
 
 
-            CODIGO = Convert.ToInt32(textBox1.Text);
-            N_factura = Convert.ToInt32(textBox1.Text);
+            CODIGO = textBox1.Text;
+            N_factura = textBox1.Text;
             Fecha = Convert.ToString(dateTimePicker1.Text);
             Empresa = textBox3.Text;
             Producto = textBox4.Text;
@@ -50,7 +50,7 @@ namespace Dacobrick
 
                 MessageBox.Show("Registro guardado correctamente.");
 
-                //this.Close();
+                this.Close();
 
             }
             else
@@ -65,18 +65,18 @@ namespace Dacobrick
             string maximo = "";
             try
             {
-                String SQL = "SELECT MAX(COD_GASTOS) as COD_GASTOS FROM gastos";
+                String SQL = "SELECT MAX(CODIGO) as CODIGO FROM facturas";
                 DataSet ds = Conexiones.Retorna_Datos(SQL);
-                maximo = Convert.ToString(ds.Tables[0].Rows[0]["COD_GASTOS"]);
+                maximo = Convert.ToString(ds.Tables[0].Rows[0]["CODIGO"]);
 
                 if (maximo == "")
                 {
-                    textBox1.Text = "0";
+                    textBox1.Text = "1";
                 }
 
                 if (maximo != "" && ds.Tables[0].Rows.Count > 0)
                 {
-                    textBox1.Text = (Convert.ToInt32(ds.Tables[0].Rows[0]["COD_GASTOS"]) + 1).ToString();
+                    textBox1.Text = (Convert.ToInt32(ds.Tables[0].Rows[0]["CODIGO"]) + 1).ToString();
                 }
             }
 

@@ -22,8 +22,20 @@ namespace Dacobrick
 
         private void button8_Click(object sender, EventArgs e)
         {
-            Form frm = new Form14();
-            frm.Show();
+            bool Abierto = false;
+            for (int i = 0; i < Application.OpenForms.Count; i++)
+            {
+                if (Application.OpenForms[i].Name == "Form14")
+                {
+                    Application.OpenForms["Form14"].Close();
+                }
+            }
+            if (Abierto == false)
+            {
+                Form frm = new Form14();
+                frm.ShowDialog();
+                Cargar_Grid_Gastos();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -19,8 +19,19 @@ namespace Dacobrick
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form frm = new Form10();
-            frm.Show();
+            bool Abierto = false;
+            for (int i = 0; i < Application.OpenForms.Count; i++)
+            {
+                if (Application.OpenForms[i].Name == "Form10")
+                {
+                    Application.OpenForms["Form10"].Close();
+                }
+            }
+            if (Abierto == false)
+            {
+                Form frm = new Form10();
+                frm.Show();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

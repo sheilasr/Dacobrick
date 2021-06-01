@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox_Tit = new System.Windows.Forms.TextBox();
+            this.textBox_Exp = new System.Windows.Forms.TextBox();
+            this.textBox_ID = new System.Windows.Forms.TextBox();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -60,6 +66,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.panel1.Controls.Add(this.textBox_Tit);
+            this.panel1.Controls.Add(this.textBox_Exp);
+            this.panel1.Controls.Add(this.textBox_ID);
+            this.panel1.Controls.Add(this.listBox3);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.checkBox9);
             this.panel1.Controls.Add(this.listBox2);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.button4);
@@ -90,6 +102,67 @@
             this.panel1.Size = new System.Drawing.Size(927, 671);
             this.panel1.TabIndex = 0;
             // 
+            // textBox_Tit
+            // 
+            this.textBox_Tit.Enabled = false;
+            this.textBox_Tit.Location = new System.Drawing.Point(13, 622);
+            this.textBox_Tit.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_Tit.Name = "textBox_Tit";
+            this.textBox_Tit.Size = new System.Drawing.Size(132, 22);
+            this.textBox_Tit.TabIndex = 38;
+            this.textBox_Tit.Visible = false;
+            // 
+            // textBox_Exp
+            // 
+            this.textBox_Exp.Enabled = false;
+            this.textBox_Exp.Location = new System.Drawing.Point(13, 592);
+            this.textBox_Exp.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_Exp.Name = "textBox_Exp";
+            this.textBox_Exp.Size = new System.Drawing.Size(132, 22);
+            this.textBox_Exp.TabIndex = 37;
+            this.textBox_Exp.Visible = false;
+            // 
+            // textBox_ID
+            // 
+            this.textBox_ID.Enabled = false;
+            this.textBox_ID.Location = new System.Drawing.Point(13, 562);
+            this.textBox_ID.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_ID.Name = "textBox_ID";
+            this.textBox_ID.Size = new System.Drawing.Size(132, 22);
+            this.textBox_ID.TabIndex = 36;
+            this.textBox_ID.Visible = false;
+            // 
+            // listBox3
+            // 
+            this.listBox3.Enabled = false;
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 16;
+            this.listBox3.Location = new System.Drawing.Point(546, 126);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(299, 116);
+            this.listBox3.TabIndex = 35;
+            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(452, 126);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 17);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Obra";
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(52, 370);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(170, 21);
+            this.checkBox9.TabIndex = 33;
+            this.checkBox9.Text = "APTO revisión médica";
+            this.checkBox9.UseVisualStyleBackColor = true;
+            // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
@@ -97,15 +170,16 @@
             this.listBox2.Items.AddRange(new object[] {
             "SI",
             "NO"});
-            this.listBox2.Location = new System.Drawing.Point(546, 119);
+            this.listBox2.Location = new System.Drawing.Point(546, 84);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(296, 36);
+            this.listBox2.Size = new System.Drawing.Size(299, 36);
             this.listBox2.TabIndex = 32;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(452, 119);
+            this.label9.Location = new System.Drawing.Point(452, 85);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 17);
@@ -144,7 +218,6 @@
             // 
             // textBox5
             // 
-            this.textBox5.Enabled = false;
             this.textBox5.Location = new System.Drawing.Point(546, 55);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
@@ -153,7 +226,6 @@
             // 
             // textBox4
             // 
-            this.textBox4.Enabled = false;
             this.textBox4.Location = new System.Drawing.Point(127, 115);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
@@ -162,7 +234,6 @@
             // 
             // textBox3
             // 
-            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(127, 85);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
@@ -171,7 +242,6 @@
             // 
             // textBox2
             // 
-            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(127, 55);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
@@ -291,7 +361,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 122);
+            this.label5.Location = new System.Drawing.Point(33, 115);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 17);
@@ -301,7 +371,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 92);
+            this.label4.Location = new System.Drawing.Point(33, 84);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 17);
@@ -311,7 +381,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(452, 61);
+            this.label3.Location = new System.Drawing.Point(452, 55);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 17);
@@ -321,7 +391,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 61);
+            this.label2.Location = new System.Drawing.Point(33, 55);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
@@ -340,7 +410,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 31);
+            this.label1.Location = new System.Drawing.Point(33, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
@@ -355,6 +425,7 @@
             this.ClientSize = new System.Drawing.Size(928, 671);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form16";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo TRABAJADOR";
@@ -392,5 +463,11 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.TextBox textBox_ID;
+        private System.Windows.Forms.TextBox textBox_Tit;
+        private System.Windows.Forms.TextBox textBox_Exp;
     }
 }

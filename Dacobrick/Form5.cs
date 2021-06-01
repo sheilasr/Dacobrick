@@ -19,14 +19,36 @@ namespace Dacobrick
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form frm = new Form6();
-            frm.Show();
+            bool Abierto = false;
+            for (int i = 0; i < Application.OpenForms.Count; i++)
+            {
+                if (Application.OpenForms[i].Name == "Form6")
+                {
+                    Application.OpenForms["Form6"].Close();
+                }
+            }
+            if (Abierto == false)
+            {
+                Form frm = new Form6();
+                frm.Show();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form frm = new Form7();
-            frm.Show();
+            bool Abierto = false;
+            for (int i = 0; i < Application.OpenForms.Count; i++)
+            {
+                if (Application.OpenForms[i].Name == "Form7")
+                {
+                    Application.OpenForms["Form7"].Close();
+                }
+            }
+            if (Abierto == false)
+            {
+                Form frm = new Form7();
+                frm.Show();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -46,7 +46,7 @@ namespace Dacobrick
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 61);
+            this.label2.Location = new System.Drawing.Point(33, 55);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 17);
@@ -56,7 +56,7 @@ namespace Dacobrick
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 92);
+            this.label3.Location = new System.Drawing.Point(33, 85);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 17);
@@ -66,7 +66,7 @@ namespace Dacobrick
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 205);
+            this.label4.Location = new System.Drawing.Point(33, 199);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 17);
@@ -87,21 +87,20 @@ namespace Dacobrick
             // 
             this.textBox4.Location = new System.Drawing.Point(127, 199);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.MaxLength = 85;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(705, 22);
             this.textBox4.TabIndex = 7;
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(127, 55);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(299, 22);
             this.dateTimePicker1.TabIndex = 8;
-            //this.dateTimePicker1.Value = new System.DateTime(2021, 5, 5, 0, 0, 0, 0);
-            this.dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
-
             // 
             // checkedListBox1
             // 
@@ -165,7 +164,7 @@ namespace Dacobrick
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 31);
+            this.label1.Location = new System.Drawing.Point(33, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
@@ -181,6 +180,7 @@ namespace Dacobrick
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form11";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nueva PLANIFICACIÓN";

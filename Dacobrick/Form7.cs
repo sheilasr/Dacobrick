@@ -22,8 +22,20 @@ namespace Dacobrick
 
         private void button8_Click(object sender, EventArgs e)
         {
-            Form frm = new Form15();
-            frm.Show();
+            bool Abierto = false;
+            for (int i = 0; i < Application.OpenForms.Count; i++)
+            {
+                if (Application.OpenForms[i].Name == "Form15")
+                {
+                    Application.OpenForms["Form15"].Close();
+                }
+            }
+            if (Abierto == false)
+            {
+                Form frm = new Form15();
+                frm.ShowDialog();
+                Cargar_Grid_Horas();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,20 +44,20 @@ namespace Dacobrick
         }
         private void Cargar_Grid_Horas()
         {
-            DataSet ds = Conexiones.Retorna_Datos("SELECT * FROM horas, obras where horas.COD_Horas = obras.ID ORDER BY Fecha");
+            DataSet ds = Conexiones.Retorna_Datos("select * from horas ORDER BY Fecha");
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = ds.Tables[0];
         }
         private void Cargar_Chart()
         {
-            String SQL = "SELECT TITULO, YEAR(Fecha) AS yyyy, MONTHNAME(Fecha) as mm, SUM(Total) AS Su FROM horas " +
-                "GROUP BY TITULO, YEAR(Fecha), MONTH(Fecha)";
-
+            //String SQL = "SELECT TITULO, YEAR(Fecha) AS yyyy, MONTHNAME(Fecha) as mm, SUM(Total) AS Su FROM horas " +
+            //    "GROUP BY TITULO, YEAR(Fecha), MONTH(Fecha)";
+            String SQL = "SELECT TITULO, SUM(Total) AS Su FROM horas GROUP BY TITULO";
             DataSet ds = Conexiones.Retorna_Datos(SQL);
 
             DataTable firstTable = ds.Tables[0];
 
-            chart1.Titles.Add("HORAS REALIZADOS POR OBRAS");
+            chart1.Titles.Add("HORAS REALIZADAS POR OBRAS");
             foreach (DataRow row in firstTable.Rows)
             {
                 Series series = chart1.Series.Add(row["TITULO"].ToString());

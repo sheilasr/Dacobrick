@@ -51,18 +51,18 @@ namespace Dacobrick
                 MessageBox.Show("Debes insertar la hora de entrada y la de salida.");
             }
 
-            int COD_Horas;
+            string COD_Horas = "";
             string Fecha = "";
-            int Obra;
+            string Obra = "";
             string H_entrada = "";
             string H_salida = "";
             string Total = "";
             string Expediente = "";
             string Titulo = "";
 
-            COD_Horas = Convert.ToInt32(textBox1.Text);
+            COD_Horas = textBox1.Text;
             Fecha = Convert.ToString(dateTimePicker1.Text);
-            Obra = Convert.ToInt32(textBox_ID.Text);
+            Obra = textBox_ID.Text;
             H_entrada = maskedTextBox1.Text;
             H_salida = maskedTextBox2.Text;
             Total = textBox4.Text;
@@ -90,7 +90,7 @@ namespace Dacobrick
 
         private void Rellenar_ListBox()
         {
-            DataSet ds = Conexiones.Retorna_Datos("Select ID, Expediente, Titulo from obras");
+            DataSet ds = Conexiones.Retorna_Datos("Select ID, Expediente, Titulo, Estado from obras where (Estado = 'PUBLICADA' or Estado = 'PRESENTADA' or Estado = 'EN EVALUACIÓN' or Estado = 'ADJUDICADA' or Estado = 'EN EJECUCIÓN' or Estado = 'FINALIZADA' or Estado = 'OTROS')");
 
             List<string> Lista_ID_obras = new List<string>();
             List<string> Lista_Exp_obras = new List<string>();
@@ -126,7 +126,7 @@ namespace Dacobrick
 
                 if (maximo == "")
                 {
-                    textBox1.Text = "0";
+                    textBox1.Text = "1";
                 }
                 
                 if (maximo != "" && ds.Tables[0].Rows.Count > 0)
