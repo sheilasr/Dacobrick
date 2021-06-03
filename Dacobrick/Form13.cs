@@ -35,16 +35,19 @@ namespace Dacobrick
 
 
             CODIGO = textBox1.Text;
-            N_factura = textBox1.Text;
+            N_factura = textBox2.Text;
             Fecha = Convert.ToString(dateTimePicker1.Text);
             Empresa = textBox3.Text;
             Producto = textBox4.Text;
             Importe = textBox6.Text;
-            ID_Obra = Variables_Globales.Identificador_obra;
+            ID_Obra = Variables_Globales.id;
 
 
             if (Convert.ToString(CODIGO) != "" && ID_Obra != "" && Convert.ToString(N_factura) != "" && Importe != "")
             {
+                string SQL = "INSERT INTO facturas (CODIGO, ID_Obra, N_factura, Fecha, Empresa, Producto, Importe) " +
+                    "VALUES ('" + CODIGO + "', '" + ID_Obra + "', '" + N_factura + "', '" + Fecha + "', '" + Empresa + "', '" + Producto + "', '" + Importe + "')";
+
                 Conexiones.Ejecuta_Consulta("INSERT INTO facturas (CODIGO, ID_Obra, N_factura, Fecha, Empresa, Producto, Importe) " +
                     "VALUES ('" + CODIGO + "', '" + ID_Obra + "', '" + N_factura + "', '" + Fecha + "', '" + Empresa + "', '" + Producto + "', '" + Importe +"')");
 

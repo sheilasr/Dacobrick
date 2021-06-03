@@ -42,12 +42,12 @@ namespace Dacobrick
                     //Seleccionar
                     if (e.ColumnIndex == 3)
                     {
-                        DialogResult resp = MessageBox.Show("¿Quieres añadir al trabajador a la obra " + Variables_Globales.Identificador_obra + "?", "¡ALERTA!", MessageBoxButtons.YesNo);
+                        DialogResult resp = MessageBox.Show("¿Quieres añadir al trabajador a la obra " + Variables_Globales.id+ "?", "¡ALERTA!", MessageBoxButtons.YesNo);
 
                         if (resp == DialogResult.Yes)
                         {
-                            string SQL = "UPDATE trabajadores_obra SET Libre = 'NO', Obra_asignada = '"+ Variables_Globales.Identificador_obra + "' WHERE CODI =  '" + Trabajador + "'";
-                            Conexiones.Ejecuta_Consulta("UPDATE trabajadores_obra SET Libre = 'NO', Obra_asignada = '" + Variables_Globales.Identificador_obra + "' WHERE CODI =  '" + Trabajador + "'");
+                            string SQL = "UPDATE trabajadores_obra SET Libre = 'NO', Obra_asignada = '"+ Variables_Globales.id+ "' WHERE CODI =  '" + Trabajador + "'";
+                            Conexiones.Ejecuta_Consulta("UPDATE trabajadores_obra SET Libre = 'NO', Obra_asignada = '" + Variables_Globales.id + "' WHERE CODI =  '" + Trabajador + "'");
 
                             MessageBox.Show("Añadido correctamente.");
                             this.Close();

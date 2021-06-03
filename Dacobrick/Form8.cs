@@ -104,10 +104,7 @@ namespace Dacobrick
             Fecha_desde = Convert.ToString(dateTimePicker1.Text);
         }
 
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-            Fecha_hasta = Convert.ToString(dateTimePicker2.Text);
-        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -115,13 +112,15 @@ namespace Dacobrick
 
             if (checkBox1.Checked == true)
             {
-                if(dateTimePicker1.Text != "" && dateTimePicker2.Text != "")
+                if(dateTimePicker1.Text != "")
                 {
                     string Fecha_inicio = Convert.ToString(dateTimePicker1.Text);
-                    string Fecha_fin = Convert.ToString(dateTimePicker2.Text);
+                    //string Fecha_fin = Convert.ToString(dateTimePicker2.Text);
+                    //String SQL = "SELECT * FROM planificacion inner join obras on planificacion.ID_obra = obras.ID" +
+                    //    " where Fecha between '" + Fecha_desde + "' and '" + Fecha_hasta + "'";
+
                     String SQL = "SELECT * FROM planificacion inner join obras on planificacion.ID_obra = obras.ID" +
-                        " where Fecha between '" + Fecha_desde + "' and '" + Fecha_hasta + "'";
-                   
+                        " where Fecha = '" + Fecha_desde + "'";
                     DataSet ds = Conexiones.Retorna_Datos(SQL);
 
                     if (ds.Tables[0].Rows.Count > 0)
@@ -138,17 +137,20 @@ namespace Dacobrick
                 }
                 else
                 {
-                    MessageBox.Show("Debes seleccionar fecha DESDE y fecha HASTA.");
+                    MessageBox.Show("Debes seleccionar FECHA.");
                 }
             }
             else if (listBox1.Text != "")
             {
-                if (dateTimePicker1.Text != "" && dateTimePicker2.Text != "")
+                if (dateTimePicker1.Text != "")
                 {
                     string Fecha_inicio = Convert.ToString(dateTimePicker1.Text);
-                    string Fecha_fin = Convert.ToString(dateTimePicker2.Text);
+                    //string Fecha_fin = Convert.ToString(dateTimePicker2.Text);
+                    //String SQL = "SELECT * FROM planificacion inner join obras on planificacion.ID_obra = obras.ID" +
+                    //    " where planificacion.ID_obra = '" + ID + "' and Fecha between '" + Fecha_desde + "' and '" + Fecha_hasta + "'";
+
                     String SQL = "SELECT * FROM planificacion inner join obras on planificacion.ID_obra = obras.ID" +
-                        " where planificacion.ID_obra = '" + ID + "' and Fecha between '" + Fecha_desde + "' and '" + Fecha_hasta + "'";
+                        " where planificacion.ID_obra = '" + ID + "' and Fecha = '" + Fecha_desde + "'";
 
                     DataSet ds = Conexiones.Retorna_Datos(SQL);
 
@@ -164,7 +166,7 @@ namespace Dacobrick
                 }
                 else
                 {
-                    MessageBox.Show("Debes seleccionar fecha DESDE y fecha HASTA.");
+                    MessageBox.Show("Debes seleccionar FECHA.");
                 }
             }
             else

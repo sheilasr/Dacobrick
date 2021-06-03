@@ -129,6 +129,7 @@ namespace Dacobrick
             this.textBox4.Enabled = false;
             this.textBox4.Location = new System.Drawing.Point(127, 267);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.MaxLength = 44;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(132, 22);
             this.textBox4.TabIndex = 27;

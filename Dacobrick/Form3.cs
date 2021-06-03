@@ -93,12 +93,13 @@ namespace Dacobrick
                         Variables_Globales.Form4_Desde = "FORM3";
 
                         Form4 frm = new Form4();
-                        frm.Show();
+                        frm.ShowDialog();
+                        Cargar_Grid();
 
 
-                        Variables_Globales.id = "";
-                        Variables_Globales.expediente = "";
-                        Variables_Globales.titulo = "";
+                        //Variables_Globales.id = "";
+                        //Variables_Globales.expediente = "";
+                        //Variables_Globales.titulo = "";
                         Variables_Globales.Form4_Desde = "";
 
                     }

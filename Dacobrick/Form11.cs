@@ -37,7 +37,7 @@ namespace Dacobrick
             string Descripcion = "";
 
             ID = textBox1.Text;
-            ID_obra = Convert.ToString(Variables_Globales.Identificador_obra);
+            ID_obra = Convert.ToString(Variables_Globales.id);
             Fecha = Convert.ToString(dateTimePicker1.Text);
             Tipo = Convert.ToString(checkedListBox1.Text);
             Descripcion = textBox4.Text;

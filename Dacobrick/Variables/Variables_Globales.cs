@@ -14,5 +14,7 @@ namespace Dacobrick
         public static string expediente = "";
         public static string titulo = "";
         public static string Form4_Desde = "";
+        public static string codigo_empleado = "";
+        public static string Form16_Desde = "";
     }
 }

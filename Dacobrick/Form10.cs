@@ -74,8 +74,28 @@ namespace Dacobrick
                             Conexiones.Ejecuta_Consulta("DELETE FROM trabajadores_obra where CODI = '"+ ID_Eliminar+"'");
 
                             MessageBox.Show("Eliminado correctamente.");
-                            this.Close();
+                            Cargar_Grid_Trabajadores();
+                            //this.Close();
                         }
+                    }
+
+                    //Editar
+                    if (e.ColumnIndex == 17)
+                    {
+                        string codigo_empleado = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                        Variables_Globales.codigo_empleado = codigo_empleado;
+                        Variables_Globales.Form16_Desde = "FORM10";
+
+                        Form16 frm = new Form16();
+                        frm.ShowDialog();
+                        Cargar_Grid_Trabajadores();
+
+                        //Variables_Globales.id = "";
+                        //Variables_Globales.expediente = "";
+                        //Variables_Globales.titulo = "";
+                        Variables_Globales.Form16_Desde = "";
+
                     }
                 }
             }

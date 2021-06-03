@@ -110,7 +110,6 @@
             this.textBox_Tit.Name = "textBox_Tit";
             this.textBox_Tit.Size = new System.Drawing.Size(132, 22);
             this.textBox_Tit.TabIndex = 38;
-            this.textBox_Tit.Visible = false;
             // 
             // textBox_Exp
             // 
@@ -120,7 +119,6 @@
             this.textBox_Exp.Name = "textBox_Exp";
             this.textBox_Exp.Size = new System.Drawing.Size(132, 22);
             this.textBox_Exp.TabIndex = 37;
-            this.textBox_Exp.Visible = false;
             // 
             // textBox_ID
             // 
@@ -130,7 +128,6 @@
             this.textBox_ID.Name = "textBox_ID";
             this.textBox_ID.Size = new System.Drawing.Size(132, 22);
             this.textBox_ID.TabIndex = 36;
-            this.textBox_ID.Visible = false;
             // 
             // listBox3
             // 
@@ -220,6 +217,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(546, 55);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.MaxLength = 44;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(299, 22);
             this.textBox5.TabIndex = 28;
@@ -228,6 +226,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(127, 115);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.MaxLength = 44;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(299, 22);
             this.textBox4.TabIndex = 27;
@@ -236,6 +235,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(127, 85);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.MaxLength = 44;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(299, 22);
             this.textBox3.TabIndex = 26;
@@ -244,6 +244,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(127, 55);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.MaxLength = 44;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(299, 22);
             this.textBox2.TabIndex = 25;
@@ -429,6 +430,7 @@
             this.Name = "Form16";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo TRABAJADOR";
+            this.Load += new System.EventHandler(this.Form16_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -30,6 +30,7 @@ namespace Dacobrick
             if (Abierto == false)
             {
                 Form frm = new Form3();
+                frm.WindowState = FormWindowState.Maximized;
                 frm.Show();
             }
         }

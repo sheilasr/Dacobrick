@@ -54,6 +54,7 @@ namespace Dacobrick
                 Cargar_Grid_Trabajadores();
             }
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
             string ID = "";
@@ -88,19 +89,44 @@ namespace Dacobrick
 
             if (textBox2.Text != "" && textBox3.Text != "" && listBox2.Text != "" && listBox1.Text != "")
             {
-                string SQL = "INSERT INTO obras (ID, Expediente, Titulo, Direccion, Poblacion, CP, Estado, Importe, IVA, Total, Promotor, Fecha_inicio, Fecha_fin, Duracion) " +
-                    "VALUES ('" + ID + "', '" + Expediente + "', '" + Titulo + "', '" + Direccion + "', '" + Poblacion + "', '" + CP + "', '" + Estado + "', '" + Importe + "', '" + IVA + "', '" + Total + "', '" + Promotor + "', '" + Fecha_inicio + "', '" + Fecha_fin + "', '" + Duracion + "')";
+                string SQL = "Select * from obras where ID = '" + ID + "'";
+                DataSet ds = Conexiones.Retorna_Datos(SQL);
 
-                Conexiones.Ejecuta_Consulta("INSERT INTO obras (ID, Expediente, Titulo, Direccion, Poblacion, CP, Estado, Importe, IVA, Total, Promotor, Fecha_inicio, Fecha_fin, Duracion) " +
-                    "VALUES ('" + ID + "', '" + Expediente + "', '" + Titulo + "', '" + Direccion + "', '" + Poblacion + "', '" + CP + "', '" + Estado + "', '" + Importe + "', '" + IVA + "', '" + Total + "', '" + Promotor + "', '" + Fecha_inicio + "', '" + Fecha_fin + "', '" + Duracion + "')");
 
-                textBox15.Text = ID;
-                textBox16.Text = Expediente;
-                textBox17.Text = Titulo;
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    string SQL2 = "UPDATE obras  set Estado = '" + Estado + "', Importe = '" + Importe + "', IVA = '" + IVA + "', Total = '" + Total + "' ," +
+                        "Fecha_inicio = '" + Fecha_inicio + "' , Fecha_fin = '" + Fecha_fin + "' , Duracion = '" + Duracion + "' where ID = '" + ID + "'";
 
-                MessageBox.Show("Registro guardado correctamente.");
+                    Conexiones.Ejecuta_Consulta("UPDATE obras set Estado = '" + Estado + "', Importe = '" + Importe + "', IVA = '" + IVA + "', Total = '" + Total + "' ," +
+                        "Fecha_inicio = '" + Fecha_inicio + "' , Fecha_fin = '" + Fecha_fin + "' , Duracion = '" + Duracion + "' where ID = '" + ID + "'");
 
-                tabControl1.SelectedIndex = 1;
+                    textBox15.Text = ID;
+                    textBox16.Text = Expediente;
+                    textBox17.Text = Titulo;
+
+                    MessageBox.Show("Registro modificado correctamente.");
+
+                    tabControl1.SelectedIndex = 1;
+                }
+                else
+                {
+                    string SQL2 = "INSERT INTO obras (ID, Expediente, Titulo, Direccion, Poblacion, CP, Estado, Importe, IVA, Total, Promotor, Fecha_inicio, Fecha_fin, Duracion) " +
+                        "VALUES ('" + ID + "', '" + Expediente + "', '" + Titulo + "', '" + Direccion + "', '" + Poblacion + "', '" + CP + "', '" + Estado + "', '" + Importe + "', '" + IVA + "', '" + Total + "', '" + Promotor + "', '" + Fecha_inicio + "', '" + Fecha_fin + "', '" + Duracion + "')";
+
+                    Conexiones.Ejecuta_Consulta("INSERT INTO obras (ID, Expediente, Titulo, Direccion, Poblacion, CP, Estado, Importe, IVA, Total, Promotor, Fecha_inicio, Fecha_fin, Duracion) " +
+                        "VALUES ('" + ID + "', '" + Expediente + "', '" + Titulo + "', '" + Direccion + "', '" + Poblacion + "', '" + CP + "', '" + Estado + "', '" + Importe + "', '" + IVA + "', '" + Total + "', '" + Promotor + "', '" + Fecha_inicio + "', '" + Fecha_fin + "', '" + Duracion + "')");
+
+                    textBox15.Text = ID;
+                    textBox16.Text = Expediente;
+                    textBox17.Text = Titulo;
+
+                    MessageBox.Show("Registro guardado correctamente.");
+
+                    tabControl1.SelectedIndex = 1;
+                }
+
+
             }
             else
             {
@@ -205,7 +231,7 @@ namespace Dacobrick
             if (Abierto == false)
             {
                 Form frm = new Form13();
-                frm.Show();
+                frm.ShowDialog();
                 Cargar_Grid_Compras();
             }
         }
@@ -276,7 +302,7 @@ namespace Dacobrick
         {
             Variables_Globales.id = textBox15.Text;
 
-            String SQL = "SELECT * from doc_inicio where ID = '" + Variables_Globales.id + "' ORDER BY CODIGO ";
+            String SQL = "SELECT * from doc_inicio where ID = '" + Variables_Globales.id + "' ORDER BY ID ";
             DataSet ds = Conexiones.Retorna_Datos(SQL);
 
             string ID = "";
@@ -316,7 +342,7 @@ namespace Dacobrick
             string SQL2 = "INSERT INTO doc_inicio (ID, CF, PC, EG, LO, AP, NP, LD, PSS, LC, AC, LI, PGR, LS, PG, AR) " +
                 "VALUES ('" + ID + "', '" + CF + "', '" + PC + "', '" + EG + "','" + LO + "', '" + AP + "', '" + NP + "', '" + LD + "', '" + PSS + "', '" + LC + "', '" + AC + "', '" + LI + "','" + PGR + "', '" + LS + "', '" + PG + "', '" + AR + "')";
 
-            if(ds.Tables[0].Rows.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
             {
                 Conexiones.Ejecuta_Consulta("UPDATE doc_inicio set CF = '" + CF + "', PC = '" + PC + "', EG = '" + EG + "', LO = '" + LO + "'," +
                     " AP = '" + AP + "', NP = '" + NP + "', LD = '" + LD + "', PSS = '" + PSS + "', LC = '" + LC + "', AC = '" + AC + "', " +
@@ -338,7 +364,7 @@ namespace Dacobrick
         {
             Variables_Globales.id = textBox15.Text;
 
-            String SQL = "SELECT * from doc_durante where ID = '" + Variables_Globales.id + "'";
+            String SQL = "SELECT * from doc_durante where ID = '" + Variables_Globales.id + "' ORDER BY ID ";
             DataSet ds = Conexiones.Retorna_Datos(SQL);
 
             string ID = "";
@@ -382,7 +408,7 @@ namespace Dacobrick
         {
             Variables_Globales.id = textBox15.Text;
 
-            String SQL = "SELECT * from doc_fin where ID = '" + Variables_Globales.id + "'";
+            String SQL = "SELECT * from doc_fin where ID = '" + Variables_Globales.id + "' ORDER BY ID ";
             DataSet ds = Conexiones.Retorna_Datos(SQL);
 
             string ID = "";
@@ -413,10 +439,10 @@ namespace Dacobrick
 
         private void Cargar_Grid_Compras()
         {
-            Variables_Globales.Identificador_obra = textBox1.Text;
-            DataSet ds = Conexiones.Retorna_Datos("SELECT * FROM facturas where ID_OBRA = '" + Variables_Globales.Identificador_obra + "'");
-            dataGridView3.AutoGenerateColumns = false;
-            dataGridView3.DataSource = ds.Tables[0];
+            Variables_Globales.id = textBox15.Text;
+            DataSet ds = Conexiones.Retorna_Datos("SELECT * FROM facturas where ID_OBRA = '" + Variables_Globales.id + "'");
+            dataGridView2.AutoGenerateColumns = false;
+            dataGridView2.DataSource = ds.Tables[0];
         }
 
 
@@ -667,8 +693,8 @@ namespace Dacobrick
                 {
                     NumFila = e.RowIndex;
 
-                    dataGridView1.CurrentCell = dataGridView1[0, NumFila];
-                    string ID_Eliminar = Convert.ToString(dataGridView1.Rows[NumFila].Cells[0].Value);
+                    //dataGridView3.CurrentCell = dataGridView1[0, NumFila];
+                    string ID_Eliminar = Convert.ToString(dataGridView3.Rows[NumFila].Cells[4].Value);
 
                     //Eliminar
                     if (e.ColumnIndex == 5)
@@ -680,7 +706,9 @@ namespace Dacobrick
                             string SQL = "UPDATE trabajadores_obra SET Libre = 'SI', Obra_asignada = '00' where CODI = '" + ID_Eliminar + "'";
                             Conexiones.Ejecuta_Consulta("UPDATE trabajadores_obra SET Libre = 'SI', Obra_asignada = '00' where CODI = '" + ID_Eliminar + "'");
 
-                            MessageBox.Show("El trabador quedado LIBRE.");
+                            MessageBox.Show("El trabador ha quedado LIBRE.");
+
+                            Cargar_Grid_Trabajadores();
                         }
                     }
                 }

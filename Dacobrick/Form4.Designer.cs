@@ -74,6 +74,10 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkBox28 = new System.Windows.Forms.CheckBox();
@@ -112,29 +116,24 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.N_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha_fac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cod_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.N_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_fac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -258,7 +257,6 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Location = new System.Drawing.Point(40, 111);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
@@ -377,7 +375,7 @@
             // 
             this.textBox14.Location = new System.Drawing.Point(967, 302);
             this.textBox14.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox14.MaxLength = 2;
+            this.textBox14.MaxLength = 3;
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(150, 22);
             this.textBox14.TabIndex = 27;
@@ -407,6 +405,7 @@
             // 
             this.textBox11.Location = new System.Drawing.Point(167, 265);
             this.textBox11.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox11.MaxLength = 44;
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(239, 22);
             this.textBox11.TabIndex = 22;
@@ -415,6 +414,7 @@
             // 
             this.textBox10.Location = new System.Drawing.Point(967, 228);
             this.textBox10.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox10.MaxLength = 44;
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(239, 22);
             this.textBox10.TabIndex = 21;
@@ -424,6 +424,7 @@
             // 
             this.textBox8.Location = new System.Drawing.Point(167, 228);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox8.MaxLength = 44;
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(239, 22);
             this.textBox8.TabIndex = 19;
@@ -443,6 +444,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(567, 154);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.MaxLength = 44;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(239, 22);
             this.textBox5.TabIndex = 16;
@@ -451,6 +453,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(167, 154);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.MaxLength = 44;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(239, 22);
             this.textBox4.TabIndex = 15;
@@ -459,7 +462,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(167, 117);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.MaxLength = 60;
+            this.textBox3.MaxLength = 64;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(639, 22);
             this.textBox3.TabIndex = 14;
@@ -468,6 +471,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(167, 80);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.MaxLength = 44;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(239, 22);
             this.textBox2.TabIndex = 13;
@@ -477,6 +481,7 @@
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(167, 43);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.MaxLength = 44;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(239, 22);
             this.textBox1.TabIndex = 12;
@@ -672,6 +677,35 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1173, 503);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "ID";
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "Fecha";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
+            // Tipo
+            // 
+            this.Tipo.DataPropertyName = "Tipo";
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
             // 
             // tabPage3
             // 
@@ -1137,6 +1171,49 @@
             this.dataGridView3.TabIndex = 0;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 55;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellidos
+            // 
+            this.Apellidos.DataPropertyName = "Apellidos";
+            this.Apellidos.HeaderText = "Apellidos";
+            this.Apellidos.Name = "Apellidos";
+            this.Apellidos.ReadOnly = true;
+            // 
+            // DNI
+            // 
+            this.DNI.DataPropertyName = "DNI";
+            this.DNI.HeaderText = "DNI";
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            // 
+            // Telefono
+            // 
+            this.Telefono.DataPropertyName = "Telefono";
+            this.Telefono.HeaderText = "Teléfono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            // 
+            // Cod_empleado
+            // 
+            this.Cod_empleado.DataPropertyName = "CODI";
+            this.Cod_empleado.HeaderText = "Código empleado";
+            this.Cod_empleado.Name = "Cod_empleado";
+            this.Cod_empleado.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.Name = "Eliminar";
+            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.button10);
@@ -1197,43 +1274,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(1173, 503);
             this.dataGridView2.TabIndex = 0;
             // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // N_factura
-            // 
-            this.N_factura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.N_factura.HeaderText = "Nº factura";
-            this.N_factura.Name = "N_factura";
-            this.N_factura.ReadOnly = true;
-            // 
-            // Fecha_fac
-            // 
-            this.Fecha_fac.HeaderText = "Fecha";
-            this.Fecha_fac.Name = "Fecha_fac";
-            this.Fecha_fac.ReadOnly = true;
-            // 
-            // Empresa
-            // 
-            this.Empresa.HeaderText = "Empresa";
-            this.Empresa.Name = "Empresa";
-            this.Empresa.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            // 
-            // Importe
-            // 
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
-            this.Importe.ReadOnly = true;
-            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.button6);
@@ -1243,7 +1283,7 @@
             this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage6.Size = new System.Drawing.Size(1252, 671);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Seguimiento y fotografías";
+            this.tabPage6.Text = "Fotografías";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // button6
@@ -1259,88 +1299,48 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // tabPage7
+            // ID
             // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 25);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage7.Size = new System.Drawing.Size(1252, 671);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Otros";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.ID.DataPropertyName = "CODIGO";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
-            // Codigo
+            // N_factura
             // 
-            this.Codigo.DataPropertyName = "ID";
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
+            this.N_factura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.N_factura.DataPropertyName = "N_factura";
+            this.N_factura.HeaderText = "Nº factura";
+            this.N_factura.Name = "N_factura";
+            this.N_factura.ReadOnly = true;
             // 
-            // Fecha
+            // Fecha_fac
             // 
-            this.Fecha.DataPropertyName = "Fecha";
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
+            this.Fecha_fac.DataPropertyName = "Fecha";
+            this.Fecha_fac.HeaderText = "Fecha";
+            this.Fecha_fac.Name = "Fecha_fac";
+            this.Fecha_fac.ReadOnly = true;
             // 
-            // Tipo
+            // Empresa
             // 
-            this.Tipo.DataPropertyName = "Tipo";
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
+            this.Empresa.DataPropertyName = "Empresa";
+            this.Empresa.HeaderText = "Empresa";
+            this.Empresa.Name = "Empresa";
+            this.Empresa.ReadOnly = true;
             // 
-            // Descripcion
+            // Producto
             // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
+            this.Producto.DataPropertyName = "Producto";
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
             // 
-            // Nombre
+            // Importe
             // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 55;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellidos
-            // 
-            this.Apellidos.DataPropertyName = "Apellidos";
-            this.Apellidos.HeaderText = "Apellidos";
-            this.Apellidos.Name = "Apellidos";
-            this.Apellidos.ReadOnly = true;
-            // 
-            // DNI
-            // 
-            this.DNI.DataPropertyName = "DNI";
-            this.DNI.HeaderText = "DNI";
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            // 
-            // Telefono
-            // 
-            this.Telefono.DataPropertyName = "Telefono";
-            this.Telefono.HeaderText = "Teléfono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            // 
-            // Cod_empleado
-            // 
-            this.Cod_empleado.DataPropertyName = "CODI";
-            this.Cod_empleado.HeaderText = "Código empleado";
-            this.Cod_empleado.Name = "Cod_empleado";
-            this.Cod_empleado.ReadOnly = true;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
-            this.Eliminar.Name = "Eliminar";
+            this.Importe.DataPropertyName = "Importe";
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
             // 
             // Form4
             // 
@@ -1387,7 +1387,6 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -1431,12 +1430,6 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn N_factura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_fac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Empresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox15;
@@ -1485,5 +1478,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cod_empleado;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn N_factura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_fac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Empresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
     }
 }

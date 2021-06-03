@@ -137,6 +137,7 @@ namespace Dacobrick
             // 
             this.textBox3.Location = new System.Drawing.Point(127, 313);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.MaxLength = 44;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(132, 22);
             this.textBox3.TabIndex = 11;
@@ -156,6 +157,7 @@ namespace Dacobrick
             // 
             this.textBox2.Location = new System.Drawing.Point(127, 55);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.MaxLength = 44;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(132, 22);
             this.textBox2.TabIndex = 9;

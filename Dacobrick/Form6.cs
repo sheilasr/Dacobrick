@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using Variables;
 
 namespace Dacobrick
 {
@@ -35,6 +36,7 @@ namespace Dacobrick
                 Form frm = new Form14();
                 frm.ShowDialog();
                 Cargar_Grid_Gastos();
+                Cargar_Chart();
             }
         }
 
@@ -45,27 +47,34 @@ namespace Dacobrick
 
         private void Cargar_Grid_Gastos()
         {
-            DataSet ds = Conexiones.Retorna_Datos("SELECT * FROM gastos ORDER BY Fecha");
+            DataSet ds = Conexiones.Retorna_Datos("SELECT * FROM gastos ORDER BY COD_GASTOS");
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = ds.Tables[0];
         }
 
+        List<string> Obras_nombre = new List<string>();
+        Series series;
         private void Cargar_Chart()
         {
-            String SQL = "SELECT YEAR(Fecha) AS yyyy, MONTHNAME(Fecha) as mm, SUM(Importe) AS Su FROM gastos " +
-                "GROUP BY YEAR(Fecha), MONTH(Fecha)";
+            //String SQL = "SELECT YEAR(Fecha) AS yyyy, MONTHNAME(Fecha) as mm, SUM(Importe) AS Su FROM gastos " +
+            //    "GROUP BY YEAR(Fecha), MONTH(Fecha)";
 
+            String SQL = "SELECT TITULO, SUM(Importe) AS Su FROM gastos GROUP BY TITULO";
             DataSet ds = Conexiones.Retorna_Datos(SQL);
 
             DataTable firstTable = ds.Tables[0];
 
-            chart1.Titles.Add("GASTOS REALIZADOS POR MESES");
+            chart1.Series.Clear();
 
-            foreach (DataRow row in firstTable.Rows){
-                Series series = chart1.Series.Add(row["mm"].ToString());
+            chart1.Titles.Add("HORAS REALIZADAS POR OBRAS");
+            foreach (DataRow row in firstTable.Rows)
+            {
+                Series series = chart1.Series.Add(row["TITULO"].ToString());
                 series.Points.Add(Convert.ToDouble(row["Su"].ToString()));
                 series.Label = row["Su"].ToString();
             }
+
+
 
         }
     }

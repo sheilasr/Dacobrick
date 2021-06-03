@@ -119,7 +119,7 @@ namespace Dacobrick
             Expediente = Convert.ToString(textBox_Exp.Text);
             Titulo = Convert.ToString(textBox_Tit.Text);
 
-            if (Convert.ToString(COD_GASTOS) != "" && Convert.ToString(Obra) != "" && Convert.ToString(N_factura) != "" && Convert.ToString(Fecha) != "")
+            if (Convert.ToString(COD_GASTOS) != "" && Convert.ToString(Obra) != "" && Convert.ToString(N_factura) != "" && Convert.ToString(Fecha) != "" && Convert.ToString(Tipo) != "" &&  Convert.ToString(Importe) != "" )
             {
                 string SQL = "INSERT INTO gastos (COD_GASTOS, N_factura, Fecha, Tipo, Obra, Expediente, Titulo, Importe) " +
                     "VALUES ('" + COD_GASTOS + "', '" + N_factura + "', '" + Fecha + "', '" + Tipo + "', '" + Obra + "', '" + Expediente + "', '" + Titulo + "', '" + Importe + "')";
@@ -133,7 +133,7 @@ namespace Dacobrick
             }
             else
             {
-                MessageBox.Show("Debes insertar nº de factura, importe y fecha.");
+                MessageBox.Show("Debes insertar nº de factura, fecha, tipo de gasto e importe.");
                 return;
             }
 

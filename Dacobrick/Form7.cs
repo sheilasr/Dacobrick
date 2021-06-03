@@ -35,6 +35,7 @@ namespace Dacobrick
                 Form frm = new Form15();
                 frm.ShowDialog();
                 Cargar_Grid_Horas();
+                Cargar_Chart();
             }
         }
 
@@ -44,7 +45,7 @@ namespace Dacobrick
         }
         private void Cargar_Grid_Horas()
         {
-            DataSet ds = Conexiones.Retorna_Datos("select * from horas ORDER BY Fecha");
+            DataSet ds = Conexiones.Retorna_Datos("select * from horas ORDER BY COD_Horas");
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = ds.Tables[0];
         }
@@ -56,6 +57,8 @@ namespace Dacobrick
             DataSet ds = Conexiones.Retorna_Datos(SQL);
 
             DataTable firstTable = ds.Tables[0];
+
+            chart1.Series.Clear();
 
             chart1.Titles.Add("HORAS REALIZADAS POR OBRAS");
             foreach (DataRow row in firstTable.Rows)
