@@ -53,7 +53,6 @@ namespace Dacobrick
         }
 
         List<string> Obras_nombre = new List<string>();
-        Series series;
         private void Cargar_Chart()
         {
             //String SQL = "SELECT YEAR(Fecha) AS yyyy, MONTHNAME(Fecha) as mm, SUM(Importe) AS Su FROM gastos " +
@@ -66,16 +65,13 @@ namespace Dacobrick
 
             chart1.Series.Clear();
 
-            chart1.Titles.Add("HORAS REALIZADAS POR OBRAS");
+            chart1.Titles.Add("GASTOS REALIZADOS POR OBRAS");
             foreach (DataRow row in firstTable.Rows)
             {
                 Series series = chart1.Series.Add(row["TITULO"].ToString());
                 series.Points.Add(Convert.ToDouble(row["Su"].ToString()));
                 series.Label = row["Su"].ToString();
             }
-
-
-
         }
     }
 }

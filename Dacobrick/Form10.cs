@@ -37,8 +37,6 @@ namespace Dacobrick
         }
         private void Cargar_Grid_Trabajadores()
         {
-            //Conexiones.Ejecuta_Consulta("INSERT INTO obras (ID, Expediente, Titulo) VALUES ('2', '1', '1')");
-
             DataSet ds = Conexiones.Retorna_Datos("SELECT * FROM trabajadores_obra ORDER BY CODI");
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = ds.Tables[0];

@@ -706,7 +706,7 @@ namespace Dacobrick
                             string SQL = "UPDATE trabajadores_obra SET Libre = 'SI', Obra_asignada = '00' where CODI = '" + ID_Eliminar + "'";
                             Conexiones.Ejecuta_Consulta("UPDATE trabajadores_obra SET Libre = 'SI', Obra_asignada = '00' where CODI = '" + ID_Eliminar + "'");
 
-                            MessageBox.Show("El trabador ha quedado LIBRE.");
+                            MessageBox.Show("El trabajador ha quedado LIBRE.");
 
                             Cargar_Grid_Trabajadores();
                         }

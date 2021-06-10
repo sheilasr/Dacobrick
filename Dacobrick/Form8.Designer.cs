@@ -243,7 +243,7 @@ namespace Dacobrick
             this.MinimizeBox = false;
             this.Name = "Form8";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CALENDARIO.";
+            this.Text = "PLANIFICACIÓN.";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

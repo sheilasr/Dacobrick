@@ -30,13 +30,21 @@ namespace Dacobrick
 
             HEntrada = (maskedTextBox1.Text.ToString());
             HSalida = (maskedTextBox2.Text.ToString());
-            THorasE = HEntrada.Substring(0, 2) + ":" + HEntrada.Substring(3, 2);
-            THoraS = HSalida.Substring(0, 2) + ":" + HSalida.Substring(3, 2);
-            valor1 = TimeSpan.Parse(THorasE); 
-            valor2 = TimeSpan.Parse(THoraS);
 
-            TimeSpan diferencia = valor2.Subtract(valor1);
-            textBox4.Text = Convert.ToString(diferencia);
+            if(maskedTextBox1.Text != "" && maskedTextBox2.Text != "")
+            {
+                THorasE = HEntrada.Substring(0, 2) + ":" + HEntrada.Substring(3, 2);
+                THoraS = HSalida.Substring(0, 2) + ":" + HSalida.Substring(3, 2);
+                valor1 = TimeSpan.Parse(THorasE);
+                valor2 = TimeSpan.Parse(THoraS);
+
+                TimeSpan diferencia = valor2.Subtract(valor1);
+                textBox4.Text = Convert.ToString(diferencia);
+            }
+            else
+            {
+                MessageBox.Show("Debes introducir hora de entrada y de salida.");
+            }
 
         }
 
@@ -178,6 +186,13 @@ namespace Dacobrick
                 seleccionarhoras(maskedTextBox1);
                 e.Cancel = true;
             }
+            Int32 minutos = Int32.Parse(maskedTextBox1.Text.Substring(3, 2));
+            if (minutos > 59)
+            {
+                MessageBox.Show("No puede superar los 59min");
+                seleccionarminutos(maskedTextBox1);
+                e.Cancel = true;
+            }
         }
 
         private void maskedTextBox2_Validating(object sender, CancelEventArgs e)
@@ -189,12 +204,26 @@ namespace Dacobrick
                 seleccionarhoras(maskedTextBox2);
                 e.Cancel = true;
             }
+            Int32 minutos = Int32.Parse(maskedTextBox1.Text.Substring(3, 2));
+            if (minutos > 59)
+            {
+                MessageBox.Show("No puede superar los 59min");
+                seleccionarminutos(maskedTextBox2);
+                e.Cancel = true;
+            }
         }
 
         private void seleccionarhoras(MaskedTextBox mkt)
         {
             mkt.Focus();
             mkt.SelectionStart = 0;
+            mkt.SelectionLength = 2;
+        }
+
+        private void seleccionarminutos(MaskedTextBox mkt)
+        {
+            mkt.Focus();
+            mkt.SelectionStart = 3;
             mkt.SelectionLength = 2;
         }
     }

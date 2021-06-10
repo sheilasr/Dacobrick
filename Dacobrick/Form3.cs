@@ -46,8 +46,6 @@ namespace Dacobrick
 
         private void Cargar_Grid()
         {
-            //Conexiones.Ejecuta_Consulta("INSERT INTO obras (ID, Expediente, Titulo) VALUES ('2', '1', '1')");
-
             DataSet ds = Conexiones.Retorna_Datos("SELECT * FROM obras ORDER BY ID");
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = ds.Tables[0];
@@ -96,22 +94,9 @@ namespace Dacobrick
                         frm.ShowDialog();
                         Cargar_Grid();
 
-
-                        //Variables_Globales.id = "";
-                        //Variables_Globales.expediente = "";
-                        //Variables_Globales.titulo = "";
                         Variables_Globales.Form4_Desde = "";
 
                     }
-                    //System.Data.DataRowView SelectedRowView;
-                    //NorthwindDataSet.CustomersRow SelectedRow;
-
-                        //SelectedRowView = (System.Data.DataRowView)customersBindingSource.Current;
-                        //SelectedRow = (NorthwindDataSet.CustomersRow)SelectedRowView.Row;
-
-                        //Form frm = new Form4();
-                        //frm.LoadOrders(SelectedRow.CustomerID);
-                        //frm.Show();
                 }
             }
             catch (Exception ex)
@@ -119,13 +104,5 @@ namespace Dacobrick
                 MessageBox.Show("Error eliminando el registro indicado.");
             }
         }
-
-
-        private void Editar_obra()
-        {
-
-        }
-
-
     }
 }
